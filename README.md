@@ -16,28 +16,28 @@ https://cloudone.trendmicro.com
 
 ## Attacking the Vulnerable Application
 ##### Open Redirect Vulnerability
-##### http://target-ip/taskManager/logout?redirect=http://www.cnn.com 
+###### http://target-ip/taskManager/logout?redirect=http://www.cnn.com 
 
 ##### Malicious Payload (Intrusion Prevention)
-##### curl -H "User-Agent: () { :; }; /bin/eject" http://target-ip 
+###### curl -H "User-Agent: () { :; }; /bin/eject" http://target-ip 
 
 ##### Remote Command Execution
-##### 1. Go to http://127.0.0.1:8000/ and click "Login"
-##### 2. Login to the application
-##### user / user123
-##### 3. Click the link for the "demo project".
-##### 4. Click the "Add files" link.
-##### 5. Pick any file from your local computer, and use the following payload for the filename:
-##### '||(SELECT password FROM auth_user WHERE username='admin')||'
+###### 1. Go to http://127.0.0.1:8000/ and click "Login"
+###### 2. Login to the application
+###### user / user123
+###### 3. Click the link for the "demo project".
+###### 4. Click the "Add files" link.
+###### 5. Pick any file from your local computer, and use the following payload for the filename:
+###### '||(SELECT password FROM auth_user WHERE username='admin')||'
 
 Once this exploit has succeeded, you should see the file in the project file list. The filename contains the MD5 hash of the password of the admin user (after the "md5$"). You should be able to crack this password using JTR or rainbow tables or other.
 
 https://md5decrypt.net/en/
 
 ##### OS Command Injection:
-##### In the same place as in for the attack above ("My Projects" --> project you created, add files). Also pick any file from your local computer, but for the payload use:
-##### An innocent sleep statement (to demonstrate that we can run any command):
-##### some_file_name; sleep 1m
+###### In the same place as in for the attack above ("My Projects" --> project you created, add files). Also pick any file from your local computer, but for the payload use:
+###### An innocent sleep statement (to demonstrate that we can run any command):
+###### some_file_name; sleep 1m
 
 You'll notice that (without Cloud One Application Security), the browser will "sleep" for 1 minute.
 .
