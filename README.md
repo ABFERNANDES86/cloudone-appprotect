@@ -6,7 +6,7 @@ Cloud One App Protect Account
 ## Instructions to Deploy the Vulnerable Application (It can be deployed on AWS ECS as well)
 In the computer where you are running Docker;
 
-docker run --rm -d -p 80:8000 --name demo-cloudone-appprotect -e TREND_AP_KEY=2ce66f11-5028-4a50-8b8f-5b59a3ae82f7 -e TREND_AP_SECRET=fe6f14ad-72ce-4cf5-8373-a8a6322d09ac andrefernandes86/demo-cloudone-appprotect:latest
+docker run --rm -d -p 80:8000 --name demo-cloudone-appprotect -e TREND_AP_KEY=?? -e TREND_AP_SECRET=??? andrefernandes86/demo-cloudone-appprotect:latest
 
 ## Testing the Vulnerable Application
 http://target-ip/
